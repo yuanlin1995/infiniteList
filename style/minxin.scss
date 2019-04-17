@@ -1,0 +1,235 @@
+$baseFontSize: 75;
+@mixin px2rem($name, $px) {
+  $name: $px / $baseFontSize * 1rem;
+}
+
+@mixin b-radius($px) {
+  border-radius: $px / $baseFontSize * 1rem;
+}
+
+@mixin b-radius($px) {
+  border-radius: $px / $baseFontSize * 1rem;
+}
+
+@mixin h($px) {
+  height: $px / $baseFontSize * 1rem;
+}
+
+@mixin minh($px) {
+  min-height: $px / $baseFontSize * 1rem;
+}
+
+@mixin maxh($px) {
+  max-height: $px / $baseFontSize * 1rem;
+}
+
+@mixin w($px) {
+  width: $px / $baseFontSize * 1rem;
+}
+
+@mixin mt($px) {
+  margin-top: $px / $baseFontSize * 1rem;
+}
+
+@mixin mb($px) {
+  margin-bottom: $px / $baseFontSize * 1rem;
+}
+
+@mixin ml($px) {
+  margin-left: $px / $baseFontSize * 1rem;
+}
+
+@mixin mr($px) {
+  margin-right: $px / $baseFontSize * 1rem;
+}
+
+@mixin pt($px) {
+  padding-top: $px / $baseFontSize * 1rem;
+}
+
+@mixin pb($px) {
+  padding-bottom: $px / $baseFontSize * 1rem;
+}
+
+@mixin pl($px) {
+  padding-left: $px / $baseFontSize * 1rem;
+}
+
+@mixin pr($px) {
+  padding-right: $px / $baseFontSize * 1rem;
+}
+
+@mixin padding($tbpx, $lrpx) {
+  padding: $tbpx / $baseFontSize * 1rem $lrpx / $baseFontSize * 1rem;
+}
+
+@mixin padding($top, $left, $bottom, $right) {
+  @include pt($top);
+  @include pl($left);
+  @include pb($bottom);
+  @include pr($right);
+}
+
+@mixin padding-rl($rightpx, $leftpx) {
+  padding: 0rem $rightpx / $baseFontSize * 1rem 0rem $leftpx / $baseFontSize *
+    1rem;
+}
+
+@mixin margin($tbpx, $lrpx) {
+  margin: $tbpx / $baseFontSize * 1rem $lrpx / $baseFontSize * 1rem;
+}
+
+@mixin margin($top, $left, $bottom, $right) {
+  @include mt($top);
+  @include ml($left);
+  @include mb($bottom);
+  @include mr($right);
+}
+
+@mixin border-1px($color) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+    content: ' ';
+    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 1.5),
+      (min-device-pixel-ratio: 1.5) {
+      -webkit-transform: scaleY(0.7);
+      transform: scaleY(0.7);
+    }
+  }
+}
+
+@mixin border-right-1px($px, $color) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    right: 1 / $baseFontSize * 1rem;
+    bottom: 0;
+    width: $px / $baseFontSize * 1rem;
+    top: 0;
+    background-color: $color;
+    content: ' ';
+  }
+}
+
+@mixin border-left-1px($px, $color) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    left: 1 / $baseFontSize * 1rem;
+    bottom: 0;
+    width: $px / $baseFontSize * 1rem;
+    top: 0;
+    background-color: $color;
+    content: ' ';
+  }
+}
+
+@mixin border-before-1px($color) {
+  position: relative;
+  &:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1 / $baseFontSize * 1rem solid $color;
+    content: ' ';
+  }
+}
+
+@mixin border-npx($color, $height) {
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: $height / $baseFontSize * 1rem solid $color;
+    content: ' ';
+  }
+}
+
+@mixin border-none() {
+  &:after {
+    display: none;
+  }
+}
+
+@mixin border-solid($bw, $color) {
+  border: $bw / $baseFontSize * 1rem solid $color;
+}
+
+@mixin lh($px) {
+  line-height: $px / $baseFontSize * 1rem;
+}
+
+@mixin fs($px) {
+  font-size: $px / $baseFontSize * 1rem;
+}
+
+@mixin ellipsis2() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: 2;
+}
+
+@mixin top($px) {
+  top: $px / $baseFontSize * 1rem;
+}
+
+@mixin left($px) {
+  left: $px / $baseFontSize * 1rem;
+}
+
+@mixin bottom($px) {
+  bottom: $px / $baseFontSize * 1rem;
+}
+
+@mixin right($px) {
+  right: $px / $baseFontSize * 1rem;
+}
+
+@mixin vertical($px) {
+  vertical-align: $px / $baseFontSize * 1rem;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+@mixin mh($px) {
+  min-height: $px / $baseFontSize * 1rem;
+}
+
+@mixin wordspacing($px) {
+  word-spacing: $px / $baseFontSize * 1rem;
+}
+@mixin fb($px) {
+  flex-basis: $px / $baseFontSize * 1rem;
+}
+@mixin t($px) {
+  top: $px / $baseFontSize * 1rem;
+}
+@mixin l($px) {
+  left: $px / $baseFontSize * 1rem;
+}
