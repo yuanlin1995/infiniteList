@@ -1,11 +1,12 @@
 <template>
   <div class="detail content-box">
     <HEADER :back='true'
+            @click.native="doclick"
             :content='content'
             :more='true'></HEADER>
     <InfiniteList class="infinite"
                   :list='list'
-                  :height='150'
+                  :height='0'
                   :boxHeight='615'>
     </InfiniteList>
   </div>
@@ -24,11 +25,11 @@ export default {
         type: 'detail',
         placeholder: 'detail'
       },
-      list: new Array(1000).fill(1).map((item, index) => {
+      list: new Array(50).fill(1).map((item, index) => {
         return {
           style: {
-            // height: Math.ceil(Math.random() * 100 + 150),
-            height: 150,
+            height: Math.ceil(Math.random() * 100 + 100),
+            // height: 150,
             bg: this.getRandomColor()
           },
           text: `#xiaodiao${index + 1}`
@@ -39,6 +40,18 @@ export default {
   methods: {
     getRandomColor () {
       return `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
+    },
+    doclick () {
+      const arr = new Array(10).fill(1).map((item, index) => {
+        return {
+          style: {
+            height: Math.ceil(Math.random() * 100 + 100),
+            bg: this.getRandomColor()
+          },
+          text: `#xiaodiao`
+        }
+      })
+      this.list = this.list.concat(arr)
     }
   }
 }

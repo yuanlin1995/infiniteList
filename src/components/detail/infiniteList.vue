@@ -64,6 +64,12 @@ export default {
         this.$refs.srcollBox.scrollTop = scrollTop
       })
     }
+  },
+  watch: {
+    list () {
+      this.init()
+      this.onScroll()
+    }
   }
 }
 </script>
